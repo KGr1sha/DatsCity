@@ -1,0 +1,6 @@
+*.so
+*.c
+*.html
+.env
+build/
+venv/
