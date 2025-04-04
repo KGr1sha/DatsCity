@@ -3,5 +3,5 @@ from Cython.Build import cythonize
 
 setup(
     name="bomba app",
-    ext_modules=cythonize("hello.py")
+    ext_modules=cythonize("fast.py")
 )

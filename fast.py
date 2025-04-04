@@ -1,8 +1,5 @@
 import cython as c
 
-def say_hello(name):
-    print(factorial(3));
-
 def factorial(number: c.int):
     ans: c.int = 1;
     i: c.int;
