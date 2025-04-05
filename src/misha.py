@@ -95,7 +95,8 @@ def find_max_length_z(letter, coords):
     но такое происходит редко
     """
     x, y, z = coords # координаты текущей буквы
-    if boolean_map_z[x, y, z] or x >= 30 or y >= 30 or z >= 30: # проверяем что по оси z что на этой координате можно разместить букву по оси z
+    if boolean_map_z[x, y, z]: # проверяем что по оси z что на этой координате можно разместить букву по оси z
+        print("OUT OF BOUNDS!!!")
         return (None, [0, 0, 0])
     layer = coords[2] # достаем уровень текущей буквы
     for length in sorted_lens: # идем в порядке убывания длины по нашему dict'у
@@ -113,19 +114,10 @@ def find_max_length_z(letter, coords):
                             flag = False
                             break
                     if flag:
-                        # print(f'ALERT SOMETHING HERE {word}, {coords}, {len(word) - i}, i {i}, LETTER {letter}')
+                        print(f'ALERT SOMETHING HERE {word}, {coords}, {len(word) - i}, i {i}, LETTER {letter}')
                         return word_id, coords + np.array([0, 0, len(word) - i]) # возвращаем потенциальное слово и координаты его первой буквы
     return (None, [0, 0, 0])
 
-
-def word_to_id():
-    wti = dict()
-    for i in range(1000):
-        w = words[i]
-        wti[w] = i
-    return wti
-
-word_to_id = word_to_id()
 
 def first_word(FIRST_LEN=11):
     """
